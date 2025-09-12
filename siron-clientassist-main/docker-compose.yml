@@ -1,0 +1,53 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    command:
+      - start-dev
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HOSTNAME: http://localhost:8080
+      KC_HOSTNAME_BACKCHANNEL_DYNAMIC: true
+    ports:
+      - "8080:8080"
+    networks:
+      - siron-network
+
+  mongodb:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+
+  support-tool:
+    image: quarkus/siron-support-tool-jvm
+    container_name: support-tool
+    ports:
+      - "9095:9095"
+    depends_on:
+      - keycloak
+    networks:
+      - siron-network
+
+  siron-client-assist:
+    image: quarkus/siron-client-assist-jvm
+    container_name: siron-client-assist
+    ports:
+      - "9096:9090"
+    depends_on:
+      - keycloak
+      - mongodb
+    networks:
+      - siron-network
+
+  siron-client-assist-fe:
+    image: siron-client-assist-fe
+    ports:
+        - "3000:3000"
+    depends_on:
+      - keycloak
+    networks:
+      - siron-network
+
+networks:
+  siron-network:
+    driver: bridge

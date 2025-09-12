@@ -1,0 +1,15 @@
+---
+name: Push on Main branch
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build stage
+    uses: ./.github/workflows/build.yaml
+    secrets: inherit
+    with:
+      docker-tag: latest
