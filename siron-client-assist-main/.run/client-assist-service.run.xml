@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="clientassist-service" type="QuarkusRunConfigurationType" factoryName="Quarkus">
-    <module name="clientassist-service" />
+  <configuration default="false" name="client-assist-service" type="QuarkusRunConfigurationType" factoryName="Quarkus">
+    <module name="client-assist-service" />
     <QsMavenRunConfiguration>
       <MavenSettings>
         <option name="myGeneralSettings" />

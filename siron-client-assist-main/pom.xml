@@ -3,8 +3,8 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.imtf.clientassist</groupId>
-    <artifactId>siron-clientassist</artifactId>
+    <groupId>com.imtf.client.assist</groupId>
+    <artifactId>siron-client.assist</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -26,7 +26,7 @@
     </properties>
 
     <modules>
-        <module>clientassist-service</module>
+        <module>client-assist-service</module>
     </modules>
 
     <repositories>
