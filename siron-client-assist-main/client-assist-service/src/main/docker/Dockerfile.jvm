@@ -1,10 +1,10 @@
 FROM amazoncorretto:17-alpine3.19-jdk
 
 # We make four distinct layers so if there are capability changes the library layers can be re-used
-COPY --chown=185 clientassist-service/target/quarkus-app/lib/ /lib/
-COPY --chown=185 clientassist-service/target/quarkus-app/*.jar /
-COPY --chown=185 clientassist-service/target/quarkus-app/app/ /app/
-COPY --chown=185 clientassist-service/target/quarkus-app/quarkus/ /quarkus/
+COPY --chown=185 client-assist-service/target/quarkus-app/lib/ /lib/
+COPY --chown=185 client-assist-service/target/quarkus-app/*.jar /
+COPY --chown=185 client-assist-service/target/quarkus-app/app/ /app/
+COPY --chown=185 client-assist-service/target/quarkus-app/quarkus/ /quarkus/
 
 USER 185
 EXPOSE 9095
